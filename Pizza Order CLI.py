@@ -1,52 +1,52 @@
 print("Hello, welcome to nondescript pizza terminal!")
 
 # initialize vars
-size_prices = {
+SIZE_PRICES = {
         "S": 15,
         "M": 20,
         "L": 25
     }
-total = 0
-valid_size = False
-valid_pepperoni = False
-valid_cheese = False
+totalPrice = 0
+validSize = False
+validPepperoni = False
+validCheese = False
 
 # start a loop and prompt user for their pizza size, stores answer in "size"
-while not valid_size:
-    size = input("Choose a size (S/M/L): ").strip().upper()
-    if size in size_prices:
-         valid_size = True
+while not validSize:
+    chooseSize = input("Choose a size (S/M/L): ").strip().upper()
+    if chooseSize in SIZE_PRICES:
+         validSize = True
     else:
         print("Invalid size entered. Please enter S, M, or L.")
     
-total = size_prices[size]
+totalPrice = SIZE_PRICES[chooseSize]
 
 # prompt for pepperoni, then add to final bill
-while not valid_pepperoni:
-    pepperoni = input("Add pepperoni? (Y/N): ").strip().upper()
+while not validPepperoni:
+    pepperoniAdd = input("Add pepperoni? (Y/N): ").strip().upper()
 # validate pepperoni input
-    if pepperoni in ["Y", "N"]:
-        valid_pepperoni = True
+    if pepperoniAdd in ["Y", "N"]:
+        validPepperoni = True
     else:
         print("Please enter Y or N.")
-if pepperoni == "Y":
-    if size == "S":
-        total += 2
+if pepperoniAdd == "Y":
+    if chooseSize == "S":
+        totalPrice += 2
     else:
-        total += 3
+        totalPrice += 3
 
 # prompt for cheese, then adjust final bill
-while not valid_cheese:
-    cheese = input("Add extra cheese? (Y/N): ").strip().upper()
+while not validCheese:
+    cheeseAdd = input("Add extra cheese? (Y/N): ").strip().upper()
 # validate cheese input
-    if cheese in ["Y", "N"]:
-        valid_cheese = True
+    if cheeseAdd in ["Y", "N"]:
+        validCheese = True
     else:
         print("Please enter Y or N.")
-if cheese == "Y":
-    total += 1
+if cheeseAdd == "Y":
+    totalPrice += 1
 
-print(f"Your final bill is: ${total}")
+print(f"Your final bill is: ${totalPrice}")
 print("Thank you for ordering from nondescript pizza terminal!")
 
 input("\nPress Enter to exit...")
